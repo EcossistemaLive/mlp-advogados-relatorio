@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Estratégico — Reunião de Imersão MLP Advogados | Live Consultoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --live-deep: #06192a;
+            --live-glass: rgba(10, 36, 61, 0.75);
+            --live-glass-hover: rgba(15, 45, 75, 0.90);
+            --glass-blur: blur(20px) saturate(180%);
+            --live-accent: #00e800;
+            --live-accent-dim: rgba(0, 232, 0, 0.15);
+            --live-danger: #ff3b3b;
+            --live-warning: #ffb703;
+            --kinetic-gradient: linear-gradient(135deg, #ffffff 0%, #a0a0a0 50%, #00e800 100%);
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            --border-active: rgba(0, 232, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--live-deep);
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+        }
+
+        header {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding: 1.2rem 2rem;
+            background: var(--live-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+        }
+
+        .logo {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .badge-header {
+            background: var(--live-accent-dim);
+            border: 1px solid var(--live-accent);
+            color: var(--live-accent);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: var(--live-glass);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 232, 0, 0.15) 0%, rgba(6, 25, 42, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            background: var(--kinetic-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        p.subtitle {
+            color: #a0aec0;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .meta-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .tag strong {
+            color: var(--live-accent);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--live-accent);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 0.6rem;
+        }
+
+        .card {
+            background: var(--live-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--border-active);
+            box-shadow: 0 8px 32px rgba(0, 232, 0, 0.08);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        p.text-body {
+            font-family: 'Merriweather', serif;
+            font-size: 0.98rem;
+            color: #cbd5e0;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        ul.custom-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.custom-list li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+            font-family: 'Merriweather', serif;
+            font-size: 0.95rem;
+            color: #cbd5e0;
+        }
+
+        ul.custom-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--live-accent);
+            font-weight: bold;
+        }
+
+        .alert-card {
+            background: rgba(255, 59, 59, 0.08);
+            border: 1px solid var(--live-danger);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .alert-card.warning {
+            background: rgba(255, 183, 3, 0.08);
+            border-color: var(--live-warning);
+        }
+
+        .alert-title {
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .alert-card .alert-title {
+            color: var(--live-danger);
+        }
+
+        .alert-card.warning .alert-title {
+            color: var(--live-warning);
+        }
+
+        /* Tabela Estilizada */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 0.9rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--live-accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.8px;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .badge-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .badge-status.vencido {
+            background: rgba(255, 59, 59, 0.2);
+            color: #ff6b6b;
+            border: 1px solid #ff3b3b;
+        }
+
+        .badge-status.hoje {
+            background: rgba(255, 183, 3, 0.2);
+            color: #ffd166;
+            border: 1px solid #ffb703;
+        }
+
+        .badge-status.agendado {
+            background: rgba(0, 232, 0, 0.15);
+            color: var(--live-accent);
+            border: 1px solid var(--live-accent);
+        }
+
+        .kpi-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .kpi-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .kpi-val {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--live-accent);
+        }
+
+        .kpi-lbl {
+            font-size: 0.82rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.3rem;
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: #718096;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .developer-credit {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            font-style: italic;
+            text-align: center;
+            margin-top: 1rem;
+            color: #a0aec0;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Live Consultoria Logo" class="logo">
+        <div class="badge-header">
+            <i data-lucide="shield-check"></i>
+            Relatório de Governança & IA
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Relatório Estratégico de Imersão e Diagnóstico</h1>
+            <p class="subtitle">Mapeamento da Jornada do Cliente, Gargalos no WhatsApp e Especificação do Agente Temis</p>
+            
+            <div class="meta-tags">
+                <div class="tag"><i data-lucide="building"></i> Cliente: <strong>MLP Advogados</strong></div>
+                <div class="tag"><i data-lucide="calendar"></i> Data: <strong>02/09/2026</strong></div>
+                <div class="tag"><i data-lucide="users"></i> Entrevistada: <strong>Lucíola (Coord. Administrativa)</strong></div>
+                <div class="tag"><i data-lucide="user-check"></i> Consultor: <strong>Cléber Donato</strong></div>
+            </div>
+        </section>
+
+        <!-- KPI Executive Summary -->
+        <section class="card">
+            <div class="section-title"><i data-lucide="file-text"></i> 0. Sumário Executivo (TL;DR)</div>
+            <p class="text-body">
+                Reunião de alinhamento com a coordenadora administrativa <strong>Lucíola</strong> para mapeamento completo do ciclo de atendimento da <strong>MLP Advogados</strong>. O estudo revelou dois grandes gargalos operacionais: o volume avassalador de interações em grupos de WhatsApp (sobrecarregando os advogados e estourando o SLA de 48 horas) e o risco gravíssimo de intimações via <strong>DTE (Domicílio Tributário Eletrônico)</strong> lidas diretamente pelo cliente sem aviso prévio ao escritório.
+            </p>
+            
+            <div class="kpi-container">
+                <div class="kpi-box">
+                    <div class="kpi-val">45 Dias</div>
+                    <div class="kpi-lbl">Prazo de Implantação</div>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-val">&lt; 48h</div>
+                    <div class="kpi-lbl">Meta de SLA WhatsApp</div>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-val">D2 / D1</div>
+                    <div class="kpi-lbl">Regua de Protocolo</div>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-val">04/09</div>
+                    <div class="kpi-lbl">Reunião Coordenadoras</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jornada & Sistemas -->
+        <section class="grid-2">
+            <div class="card">
+                <div class="section-title"><i data-lucide="git-merge"></i> 1. Jornada de Atendimento do Cliente</div>
+                <ul class="custom-list">
+                    <li><strong>Captação:</strong> 99% por indicação; clientes validam a autoridade do escritório pelas redes sociais.</li>
+                    <li><strong>Formalização:</strong> Reunião inicial (presencial/online) com sócios para fixar honorários. O Sucesso do Cliente (CS) elabora proposta e contrato (tributário, trabalhista, cível).</li>
+                    <li><strong>Assinatura Digital:</strong> Coletada via sistema ZIG ou presencialmente. Contrato e procuração são armazenados no servidor compartilhado.</li>
+                    <li><strong>Grupos de Comunicação:</strong> É criado um grupo exclusivo de WhatsApp por cliente/processo com advogados envolvidos, Lucíola e Dr. Rogério.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="section-title"><i data-lucide="cpu"></i> 2. Ecossistema de Sistemas</div>
+                <ul class="custom-list">
+                    <li><strong>LegalOne (LigaOne):** Sistema jurídico para acompanhamento processual e controle de prazos da controladoria.</li>
+                    <li><strong>Servidor de Arquivos (Dropbox / Microsoft):** Armazena petições, minutas e contratos. Acesso estritamente interno para advogados (cliente não acessa).</li>
+                    <li><strong>ZIG:** Plataforma para coleta de assinatura digital em procurações e honorários.</li>
+                    <li><strong>Nivo:** Sistema de gestão financeira e faturamento.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Gargalos Críticos -->
+        <section class="card">
+            <div class="section-title"><i data-lucide="alert-triangle"></i> 3. Gargalos Críticos & Riscos Identificados</div>
+            
+            <div class="grid-3" style="margin-top: 1rem;">
+                <div class="card" style="background: rgba(255,255,255,0.02);">
+                    <h3 style="color: var(--live-accent); margin-bottom: 0.5rem; font-size: 1.1rem;">1. Gargalo dos Grupos de WhatsApp</h3>
+                    <p style="font-size: 0.9rem; color: #a0aec0;">Volume consultivo alto. O cliente busca resposta imediata no aplicativo. Advogados ficam sobrecarregados e o SLA de 48h estoura frequentemente.</p>
+                </div>
+
+                <div class="card" style="background: rgba(255,255,255,0.02);">
+                    <h3 style="color: var(--live-danger); margin-bottom: 0.5rem; font-size: 1.1rem;">2. Risco Crítico de Intimações DTE</h3>
+                    <p style="font-size: 0.9rem; color: #a0aec0;">Quando o cliente clica na notificação tributária do portal DTE via certificado digital, abre-se o prazo recursal no tribunal sem gerar notificação direta ao advogado.</p>
+                </div>
+
+                <div class="card" style="background: rgba(255,255,255,0.02);">
+                    <h3 style="color: var(--live-warning); margin-bottom: 0.5rem; font-size: 1.1rem;">3. Segurança Contra Bloqueios</h3>
+                    <p style="font-size: 0.9rem; color: #a0aec0;">Receio de perda de números corporativos. Solução: Agente com chip dedicado próprio, automação por browser, delays simulados e textos dinâmicos.</p>
+                </div>
+            </div>
+
+            <div class="alert-card">
+                <div class="alert-title"><i data-lucide="shield-alert"></i> PROTOCOLO VERMELHO DTE (ALERTA EMERGENCIAL)</div>
+                <p style="font-size: 0.9rem; color: #f87171;">
+                    A Secretária Concierge (Temis) será programada para identificar qualquer menção do cliente sobre notificação DTE e emitir um <strong>ALERTA MÁXIMO URGENTE</strong> no grupo e por e-mail para a equipe jurídica, evitando a perda de prazos fatais.
+                </p>
+            </div>
+        </section>
+
+        <!-- Arquitetura Agente Temis -->
+        <section class="card">
+            <div class="section-title"><i data-lucide="bot"></i> 4. Especificação dos Agentes (Dupla Persona)</div>
+            
+            <div class="grid-2" style="margin-top: 1rem;">
+                <div class="card" style="background: rgba(0, 232, 0, 0.03); border-color: rgba(0, 232, 0, 0.2);">
+                    <h3 style="color: var(--live-accent); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i data-lucide="book-open"></i> A. Mentor Jurídico Interno (Equipe)
+                    </h3>
+                    <ul class="custom-list">
+                        <li>Apoio técnico a estagiários e paralegais no peticionamento.</li>
+                        <li>Consulta à base de conhecimento (RAG) na pasta compartilhada.</li>
+                        <li>Governança de prazos com tripla régua: <strong>Fatal, D1 e D2</strong> (protocolos prioritários no D2).</li>
+                        <li>Garantia de sigilo OAB e LGPD (sem alucinações de lei).</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; margin-top: 1rem;"><a href="file:///d:/Automacao/Consultoria/clientes/mlp-advogados/agentes/agente-juridico-mentor.md" style="color: var(--live-accent); font-weight: 600;">📄 Ver Especificação Completa (agente-juridico-mentor.md)</a></p>
+                </div>
+
+                <div class="card" style="background: rgba(6, 25, 42, 0.5); border-color: rgba(255, 255, 255, 0.15);">
+                    <h3 style="color: #60a5fa; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i data-lucide="message-square"></i> B. Secretária Concierge (Cliente)
+                    </h3>
+                    <ul class="custom-list">
+                        <li>Acolhimento imediato de dúvidas nos grupos de WhatsApp.</li>
+                        <li>Contenção da ansiedade do cliente dentro da meta de 48h.</li>
+                        <li>Disparo do <strong>Protocolo Vermelho DTE</strong> em caso de citação eletrônica.</li>
+                        <li>Operação segura via número isolado e simulação de escrita humana.</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; margin-top: 1rem;"><a href="file:///d:/Automacao/Consultoria/clientes/mlp-advogados/agentes/secretaria-atendimento-concierge.md" style="color: #60a5fa; font-weight: 600;">📄 Ver Especificação Completa (secretaria-atendimento-concierge.md)</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cronograma & Tabela de Auditoria -->
+        <section class="card">
+            <div class="section-title"><i data-lucide="calendar"></i> 5. Auditoria de Prazos & Plano de Implantação (45 Dias)</div>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fase / Ação</th>
+                            <th>Entregável / Objetivo</th>
+                            <th>Responsável</th>
+                            <th>Prazo</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ajustar agenda das 15h</strong></td>
+                            <td>Alinhamento prévio da reunião de IA</td>
+                            <td>Sócios MLP</td>
+                            <td>27/08/2026</td>
+                            <td><span class="badge-status vencido">Vencido</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compartilhamento de Contatos</strong></td>
+                            <td>Envio dos contatos das coordenadoras</td>
+                            <td>Equipe MLP</td>
+                            <td>30/08/2026</td>
+                            <td><span class="badge-status vencido">Vencido</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Envio de Material Inicial</strong></td>
+                            <td>Compilação dos fluxos e planilhas</td>
+                            <td>Luiz Portal</td>
+                            <td>31/08/2026</td>
+                            <td><span class="badge-status vencido">Vencido</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reunião Técnica Cleber x "Júlio"</strong></td>
+                            <td>Alinhamento de arquitetura de IA</td>
+                            <td>Cléber Donato</td>
+                            <td>02/09/2026</td>
+                            <td><span class="badge-status hoje">Hoje</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Imersão Presencial Coordenadoras</strong></td>
+                            <td>Participação na reunião de 6ª feira às 09h</td>
+                            <td>Cléber Donato</td>
+                            <td>04/09/2026 09h</td>
+                            <td><span class="badge-status agendado">Agendado</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fase 1: Levantamento de Dados</strong></td>
+                            <td>Entrevistas e matriz de dúvidas frequentes</td>
+                            <td>Cléber / Lucíola</td>
+                            <td>12/09/2026</td>
+                            <td><span class="badge-status agendado">Em andamento</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fase 2: Desenvolvimento & Adequação</strong></td>
+                            <td>Montagem das bases RAG e Prompts Temis</td>
+                            <td>Cléber Donato</td>
+                            <td>25/09/2026</td>
+                            <td><span class="badge-status agendado">Planejado</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fase 3: Testes Internos</strong></td>
+                            <td>Simulação em grupo fechado de testes</td>
+                            <td>Lucíola / Cléber</td>
+                            <td>05/10/2026</td>
+                            <td><span class="badge-status agendado">Planejado</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fase 4: Go-Live & Migração</strong></td>
+                            <td>Ativação nos grupos oficiais de clientes</td>
+                            <td>Cléber / Portal</td>
+                            <td>17/10/2026</td>
+                            <td><span class="badge-status agendado">Planejado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Live Consultoria. Todos os direitos reservados.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.4rem; color: #a0aec0;">Padrão Técnico e Identidade Visual V6.0 — Design System Glassmorphism</p>
+        <div class="developer-credit">Desenvolvido por Cléber Donato</div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
